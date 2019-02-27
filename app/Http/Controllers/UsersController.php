@@ -6,6 +6,15 @@ use App\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller {
+
+    /*---------------------------------------------------------------------------*
+	| --construct()                                                              |
+	*---------------------------------------------------------------------------*/
+    public function __construct() {
+        //Proteggiamo il controller con un middleware che ci impone il passaggio
+        //del token ad ogni chiamata
+        $this->middleware('auth:api');
+    }
 	
 	/*---------------------------------------------------------------------------*
 	| index() - lista                                                            |
